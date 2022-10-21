@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class employee
+{
+  int a,b;
+  public:
+  friend employee calm(employee o1, employee o2);
+  void getdata(int x, int y)
+  {
+     a = x;
+     b = y;
+  }
+
+  void printdata()
+  {
+      cout<<"a and b are "<<a<<", "<<b<<endl;
+  }
+
+};
+
+employee calm(employee o1, employee o2)
+{
+    employee o3;
+    o3.getdata((o1.a + o1.b), (o2.a + o2.b));
+    return o3;
+}
+
+int main()
+{
+    employee ep1, ep2, sum;
+    
+    ep1.getdata(1, 9);
+    ep1.printdata();
+
+    ep2.getdata(5, 3);
+    ep2.printdata();
+    
+    cout<<"sum of both of these numbers are "<<endl;
+    sum = calm(ep1 , ep2);
+    sum.printdata();
+    return 0;    
+}
